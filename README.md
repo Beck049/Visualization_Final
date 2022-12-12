@@ -17,3 +17,13 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 ## Visualization Design Sketch
 
 ## Work breakdown
+
+||||
+|:---:|:---:|:---:|
+|First Cycle|||
+|Data Preperation|clean the data||
+||grab the required data||
+|Main body|||
+|Draw a Taiwan Map|seperate by every areas||
+||animation when hover on section||
+||a point to place graph (or point)||
