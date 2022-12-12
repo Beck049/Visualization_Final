@@ -18,12 +18,25 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 
 ## Work breakdown
 
-||||
-|:---:|:---:|:---:|
 |First Cycle|||
+|:---:|:---:|:---:|
 |Data Preperation|clean the data||
 ||grab the required data||
 |Main body|||
 |Draw a Taiwan Map|seperate by every areas||
 ||animation when hover on section||
 ||a point to place graph (or point)||
+
+|Second Cycle|||
+|:---:|:---:|:---:|
+|Mayor & debt|Mayor basic data||
+||vote rate |pie chart|
+||debt change of the trem |line chart|
+||small gragh of the debt change|bar chart scattered on map|
+||all year debt change, categorized by term|line chart|
+||compare of multiple area's total debt change|line chart|
+||||
+|Councilor & crime record|seats of every party|pie chart|
+||votes of every party|bar chart|
+||lists of councilor's criminal record|table|
+||History change of the party seats||
