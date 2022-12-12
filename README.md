@@ -29,7 +29,7 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 
 |First Cycle|||
 |:---:|:---|:---:|
-|Data Preperation|grab the required data| [x] |
+|Data Preperation|grab the required data| - [x] |
 ||clean the data||
 |Draw a Taiwan Map|seperate by every areas||
 ||animation when hover on section||
