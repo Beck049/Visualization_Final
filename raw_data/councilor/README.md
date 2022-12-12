@@ -22,6 +22,6 @@
   - 結論：
     - 捨棄
 - 現任議員前科列表
-  - 來源：
-  - 參考：
+  - 來源：[司法院裁判書系統](https://judgment.judicial.gov.tw/FJUD/default.aspx)
+  - 參考：[全國議員候選人犯罪前科大追擊](https://www.tawpa.org/candidates/map?fbclid=IwAR3B9A9vPZCvS4IIuO2oRPcll1-VPcO26FmSJp7BZ3ZhTYZGi9OS00v7jLE)
   - 用爬蟲一條一條對照姓名抓
