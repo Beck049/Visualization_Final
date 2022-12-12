@@ -7,12 +7,10 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 
 ## Data and Data Processing
 
-1. (直轄市長選舉資料)
-2. (市長選舉資料)
-3. (各縣市債務鐘)
-4. (直轄市議員選舉資料)
-5. (市議員選舉資料)
-6. (現任市議員前科總覽)
+1. MayorElect.csv(縣市長選舉資料)
+2. Debt.csv(各縣市債務鐘)
+3. CouncilorElect.csv(縣市議員選舉資料)
+4. CouncilCrime.csv(現任市議員前科總覽)
 
 ## Visualization Design Sketch
 
