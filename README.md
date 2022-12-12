@@ -16,6 +16,15 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 
 ## Visualization Design Sketch
 
+## File structure
+- index_mayor.ts
+- index_council.ts
+- raw_data: do not use
+- clean_data: read files inside to get data
+- component: common vue components
+- mayor_graph: D3.js that draws graph for mayor
+- council_graph: D3.js that draws graph for council
+
 ## Work breakdown
 
 |First Cycle|||
