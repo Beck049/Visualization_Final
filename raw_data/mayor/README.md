@@ -3,13 +3,13 @@
 - 直轄市長選舉概況
   - 年分：111年、107年、103年
   - 縣市：台北市、新北市、桃園市、台中市、台南市、高雄市
-  - 來源：[選舉公投資料庫](https://db.cec.gov.tw/ElecTable/Election?type=CouncilMember)  
+  - 來源：[選舉公投資料庫](https://db.cec.gov.tw/ElecTable/Election?type=Mayor)  
   - 問題：
     - 我只需要：縣市、姓名、政黨、得票數、得票率、是否當選
 - 非直轄市長選舉概況
   - 年分：111年、107年、103年
   - 縣市：宜蘭縣、新竹縣、苗栗縣、彰化縣、南投縣、雲林縣、嘉義縣、屏東縣、台東縣、花蓮縣、澎湖縣、連江縣、金門縣、基隆縣、新竹市、嘉義市
-  - 來源：[選舉公投資料庫](https://db.cec.gov.tw/ElecTable/Election?type=CouncilMember)  
+  - 來源：[選舉公投資料庫](https://db.cec.gov.tw/ElecTable/Election?type=CountyMayor)  
   - 問題：
     - 我只需要：縣市、姓名、政黨、得票數、得票率、是否當選
 - 債務鐘：待辦
