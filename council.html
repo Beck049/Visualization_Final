@@ -454,7 +454,6 @@
                 }
             }
         });
-        
     }
 
     function test(arg){
@@ -470,8 +469,8 @@
         el.innerHTML = "";
         const table = document.createElement("table");
         d3.csv("clean_data/CouncilCrime.csv", function(data){
-            const row = document.createElement("tr");
             if(data.name == name){
+                const row = document.createElement("tr");
                 const cel1 = document.createElement("td");
                 cel1.innerText = data.tag;
                 const cel2 = document.createElement("td");
@@ -479,10 +478,19 @@
                 const cel3 = document.createElement("td");
                 cel3.innerText = data.year;
                 row.append(cel1, cel2, cel3);
+                table.append(row);
             }
-            table.append(row);
             el.append(table);
         });
+        var html_back = "<p onclick='back()' style='font-size:12px;'> < back </p>";
+        el.innerHTML += html_back;
+    }
+
+    function back(){
+        var ele = document.getElementById("crime");
+        var el= document.getElementById("List");
+        el.style.display="block";
+        ele.style.display="none";
     }
 
     function renderPage(){
