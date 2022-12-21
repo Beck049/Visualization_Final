@@ -200,13 +200,18 @@
         </svg>
         <!-- //////////////////////////// -->
         <div class="title_area">
-            <h1 id="city" style="height:5%;">台北市</h1>
+            <h1 id="city">台北市</h1>
             <hr />
-            <div id="List" style="height: 30%;  overflow-x: hidden;"></div>
+            <div id="List"></div>
+            <div id="crime">
+                <table id="crime_table">
+
+                </table>
+            </div>
             <hr />
-            <div id="pie" style="height:25%;"></div>
+            <div id="pie"></div>
             <hr />
-            <div id="history" style="height:25%;"></div>
+            <div id="history"></div>
 
         </div>
     </div>
@@ -434,19 +439,49 @@
     function read_council_crime(){
         var cur_name = null;
         var el = document.getElementById("List");
+        var ele= document.getElementById("crime");
+        el.style.display = "block";
+        ele.style.display = "none";
         el.innerHTML = "";
         d3.csv("clean_data/CouncilCrime.csv", function(data){
             if(data.city == cur_city){
                 if(data.name != cur_name){
                     cur_name = data.name;
                     console.log(cur_name);
-                    const name_list = document.createElement("button");
-                    name_list.classList.add("list_name");
-                    name_list.innerHTML = cur_name ;
-                    el.append(name_list);
+                    var html_str = '<button class="list_name" id="' + cur_name + '" onclick="get_crimes(' + "'" + cur_name + "'" + ')">' + cur_name + '</button>'
+                    el.innerHTML += html_str;
                     el.innerHTML += '<br>';
                 }
             }
+        });
+        
+    }
+
+    function test(arg){
+        alert(arg);
+    }
+
+    function get_crimes(name){
+        console.log("get crimes");
+        var el = document.getElementById("crime");
+        var ele= document.getElementById("List");
+        el.style.display="block";
+        ele.style.display="none";
+        el.innerHTML = "";
+        const table = document.createElement("table");
+        d3.csv("clean_data/CouncilCrime.csv", function(data){
+            const row = document.createElement("tr");
+            if(data.name == name){
+                const cel1 = document.createElement("td");
+                cel1.innerText = data.tag;
+                const cel2 = document.createElement("td");
+                cel2.innerText = data.crime;
+                const cel3 = document.createElement("td");
+                cel3.innerText = data.year;
+                row.append(cel1, cel2, cel3);
+            }
+            table.append(row);
+            el.append(table);
         });
     }
 

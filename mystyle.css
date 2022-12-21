@@ -75,11 +75,39 @@ hr {
     margin-top: 20px;
 }
 
+#city {
+    height:5%;
+}
+
+#List {
+    height: 30%;
+    overflow-x: hidden;
+    margin:auto;
+    display:block;
+}
 .list_name {
     background-color: #555555;
     color:goldenrod;
-    border-color: goldenrod;
     font-size: 20px;
     font-weight: bolder;
     width:50%;
+    margin: auto;
+    border: 3px solid goldenrod;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+#crime {
+    height: 30%;
+    overflow-x: hidden;
+    margin:auto;
+    display:none;
+}
+
+#pie {
+    height:25%;
+}
+
+#history {
+    height:25%;
 }
