@@ -8,7 +8,7 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <!-- <script src="https://d3js.org/d3.v6.min.js"></script> -->
+    <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 
@@ -204,7 +204,8 @@
     <div class="title_area">
         <h1 id="city" style="height:5%;">臺北市</h1>
         <hr />
-        <div id="List" class="councilor" style="height: 30%;  overflow-x: hidden;"></div>
+        <!-- <div id="line" class="councilor" style="height: 30%;  overflow-x: hidden;"></div> -->
+        <div id="line"></div>
         <hr />
         <select id="selectYear">
             <option value="111">111年</option>
@@ -215,6 +216,7 @@
         <hr />
         <div id="history" class="councilor" style="height:25%;"></div>
     </div>
+    <script src="mayor/debtOfAMayor (line chart)/debtOfAMayor.js"></script>
     <script src="mayor/Mayor (pie chart)/vote_rate.js"></script>
 </body>
 
@@ -269,6 +271,7 @@
     }
     function renderPage() {
         vote_rate(cur_city, year);
+        debt(cur_city);
     }
 
     function change_city_name(string) {
@@ -360,6 +363,8 @@
         console.log("kinmen");
         change_city_name("金門縣");
     }
+    vote_rate(cur_city, year);
+    debt(cur_city);
 </script>
 
 </html>
