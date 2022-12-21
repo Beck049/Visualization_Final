@@ -74,3 +74,12 @@ hr {
 .forcast h2 {
     margin-top: 20px;
 }
+
+.list_name {
+    background-color: #555555;
+    color:goldenrod;
+    border-color: goldenrod;
+    font-size: 20px;
+    font-weight: bolder;
+    width:50%;
+}

@@ -8,7 +8,7 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
 
 </head>
 
@@ -199,14 +199,14 @@
             </g>
         </svg>
         <!-- //////////////////////////// -->
-        <div class="title_area" style="background-color: purple; ">
+        <div class="title_area">
             <h1 id="city" style="height:5%;">台北市</h1>
             <hr />
-            <div id="List" style="height: 30%; background-color: blue; overflow-x: hidden;"></div>
+            <div id="List" style="height: 30%;  overflow-x: hidden;"></div>
             <hr />
-            <div id="pie" style="height:25%; background-color: aquamarine;"></div>
+            <div id="pie" style="height:25%;"></div>
             <hr />
-            <div id="history" style="height:25%; background-color:aqua;"></div>
+            <div id="history" style="height:25%;"></div>
 
         </div>
     </div>
@@ -440,10 +440,11 @@
                 if(data.name != cur_name){
                     cur_name = data.name;
                     console.log(cur_name);
-                    const name_list = document.createElement("a");
+                    const name_list = document.createElement("button");
                     name_list.classList.add("list_name");
-                    name_list.innerHTML = cur_name + '<br>';
+                    name_list.innerHTML = cur_name ;
                     el.append(name_list);
+                    el.innerHTML += '<br>';
                 }
             }
         });
