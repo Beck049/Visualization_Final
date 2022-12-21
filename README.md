@@ -53,8 +53,7 @@ interact with the map to examine the data from selected area
 
 |Second Cycle||||
 |:---:|:---|:---:|---:|
-|Mayor & debt|Mayor basic data||
-||vote rate |pie chart|KTJL, anci123|
+|Mayor & debt||vote rate |pie chart|KTJL, anci123|
 ||debt change of the term |line chart|KTJL, anci123|
 ||small graph of the debt change|bar chart scattered on map| -- |
 ||all year debt change, categorized by term|line chart|KTJL, anci123|
