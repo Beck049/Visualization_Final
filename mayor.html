@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <!-- <div id="app"> -->
     <svg id="cf503461-00bd-459a-aeb5-062ebc913211" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 595.28 841.89">
         <defs />
@@ -199,200 +199,26 @@
                 d="M176.9,53.81l-1.63,1.43.14.47,2.85.2-.14-.81-1.22-1.29Z" />
         </g>
     </svg>
+    <!-- </div> -->
+
     <div class="title_area">
-        <h1 id="city" style="height:5%;">台北市</h1>
+        <h1 id="city" style="height:5%;">臺北市</h1>
         <hr />
         <div id="List" class="councilor" style="height: 30%;  overflow-x: hidden;"></div>
         <hr />
+        <select id="selectYear">
+            <option value="111">111年</option>
+            <option value="107">107年</option>
+            <option value="103">103年</option>
+        </select>
         <div id="pie" class="councilor" style="height:25%;"></div>
         <hr />
         <div id="history" class="councilor" style="height:25%;"></div>
     </div>
-    </div>
-    <script src="mayor/Mayor pie chart/vote_rate.js"></script>
+    <script src="mayor/Mayor (pie chart)/vote_rate.js"></script>
 </body>
 
 <script>
-    // var place_data
-    //  = [
-    //     {
-    //         tag: "taipei_city",
-    //         place: "臺北市",
-    //         low: 16,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "new_taipei_city",
-    //         place: "新北市",
-    //         low: 15,
-    //         high: 22,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "taichung_city",
-    //         place: "台中市",
-    //         low: 15,
-    //         high: 22,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "tainan_city",
-    //         place: "臺南市",
-    //         low: 16,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "kaohsiung_city",
-    //         place: "高雄市",
-    //         low: 16,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "keelung_city",
-    //         place: "基隆市",
-    //         low: 15,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "taoyuan_country",
-    //         place: "桃園市",
-    //         low: 15,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "hsinchu_city",
-    //         place: "新竹市",
-    //         low: 13,
-    //         high: 21,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "hsinchu_country",
-    //         place: "新竹縣",
-    //         low: 19,
-    //         high: 21,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "miaoli_country",
-    //         place: "苗栗縣",
-    //         low: 16,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "changhua_country",
-    //         place: "彰化縣",
-    //         low: 14,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "nantou_country",
-    //         place: "南投縣",
-    //         low: 12,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "yunlin_country",
-    //         place: "雲林縣",
-    //         low: 11,
-    //         high: 24,
-    //         weather: "Cloudy"
-    //     },
-
-    //     {
-    //         tag: "chiayi_city",
-    //         place: "嘉義市",
-    //         low: 10,
-    //         high: 24,
-    //         weather: "Rainy"
-    //     },
-
-    //     {
-    //         tag: "chiayi_country",
-    //         place: "嘉義縣",
-    //         low: 12,
-    //         high: 24,
-    //         weather: "Cloudy"
-    //     },
-
-    //     {
-    //         tag: "pingtung_country",
-    //         place: "屏東縣",
-    //         low: 18,
-    //         high: 24,
-    //         weather: "Cloudy"
-    //     },
-
-    //     {
-    //         tag: "yilan_country",
-    //         place: "宜蘭縣",
-    //         low: 20,
-    //         high: 24,
-    //         weather: "Cloudy"
-    //     },
-
-    //     {
-    //         tag: "hualien_country",
-    //         place: "花蓮縣",
-    //         low: 21,
-    //         high: 24,
-    //         weather: "Sunny"
-    //     },
-
-    //     {
-    //         tag: "taitung_country",
-    //         place: "台東縣",
-    //         low: 17,
-    //         high: 22,
-    //         weather: "Sunny"
-    //     },
-
-    //     {
-    //         tag: "penghu_country",
-    //         place: "澎湖縣",
-    //         low: 14,
-    //         high: 24,
-    //         weather: "Cloudy"
-    //     },
-
-    //     {
-    //         tag: "kinmen_country",
-    //         place: "金門縣",
-    //         low: 15,
-    //         high: 26,
-    //         weather: "Sunny"
-    //     },
-
-    //     {
-    //         tag: "lienchiang_country",
-    //         place: "連江縣",
-    //         low: 15,
-    //         high: 20,
-    //         weather: "Rainy"
-    //     },
-    // ];
-
-    // var paths;
     const app = new Vue({
         el: '#app',
         mounted() {
@@ -429,10 +255,21 @@
 </script>
 
 <script>
-    var cur_city = "台北市"
+    var cur_city = "臺北市"
 
     const el = document.getElementById("cf503461-00bd-459a-aeb5-062ebc913211");
     el.addEventListener("click", renderPage, false);
+
+    const chooseYear = document.getElementById("selectYear");
+    chooseYear.addEventListener("change", changeYear);
+    var year = 111;
+    function changeYear() {
+        year = document.getElementById("selectYear").value
+        vote_rate(cur_city, year);
+    }
+    function renderPage() {
+        vote_rate(cur_city, year);
+    }
 
     function change_city_name(string) {
         cur_city = string;
@@ -449,7 +286,7 @@
     }
     function taichung() {
         console.log("taichung");
-        change_city_name("台中市");
+        change_city_name("臺中市");
     }
     function keelung() {
         console.log("keelung");
@@ -461,7 +298,7 @@
     }
     function taipei() {
         console.log("taipei");
-        change_city_name("台北市");
+        change_city_name("臺北市");
     }
     function new_taipei() {
         console.log("new_taipei");
@@ -505,11 +342,11 @@
     }
     function taitung() {
         console.log("taitung");
-        change_city_name("台東縣");
+        change_city_name("臺東縣");
     }
     function tainan() {
         console.log("tainan");
-        change_city_name("台南市");
+        change_city_name("臺南市");
     }
     function kaohsiung() {
         console.log("kaohsiung");
