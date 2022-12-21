@@ -33,8 +33,8 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 ||animation when hover on section|Beck049|
 ||a point to place graph (or point)||
 
-|Second Cycle|||
-|:---:|:---|:---:|
+|Second Cycle||||
+|:---:|:---|:---:|---:|
 |Mayor & debt|Mayor basic data||
 ||vote rate |pie chart|
 ||debt change of the term |line chart|
@@ -44,6 +44,6 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 ||||
 |Councilor & crime record|seats of every party|pie chart|
 ||votes of every party|bar chart|
-||lists of councilor's criminal record|table|
+||lists of councilor's criminal record|table|Beck049|
 ||a point that its size display the criminal councilor|point scatter on map| 
 ||History change of the party seats||
