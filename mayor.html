@@ -509,7 +509,7 @@
                 .domain([0, d3.max(data, function (d) { return d.debtInOneYear; })])
                 .range([250, 0]);
             svg.append("g")
-                .attr("transform", "translate(50,0)")
+                .attr("transform", "translate(100,0)")
                 .call(d3.axisLeft(y).ticks(10));
             svg.append("text")
                 .attr("transform", "translate(20,50) rotate(90)")
