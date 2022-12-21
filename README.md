@@ -44,21 +44,21 @@ interact with the map to examine the data from selected area
 |First Cycle|Done||
 |:---:|:---|:---:|
 |Data Preparation|grab the required data|Beck049|
-||clean the data|Beck049|
+||clean the data|Beck049, KTJL, anci123|
 |Draw a Taiwan Map|separate by every areas|Beck049|
 ||animation when hover on section|Beck049|
-||a point to place graph (or point)||
+||a point to place graph (or point)| -- |
 
 |Second Cycle||||
 |:---:|:---|:---:|---:|
 |Mayor & debt|Mayor basic data||
-||vote rate |pie chart|
-||debt change of the term |line chart|
-||small graph of the debt change|bar chart scattered on map|
-||all year debt change, categorized by term|line chart|
-||compare of multiple area's total debt change|line chart|
+||vote rate |pie chart|KTJL, anci123|
+||debt change of the term |line chart|KTJL, anci123|
+||small graph of the debt change|bar chart scattered on map| -- |
+||all year debt change, categorized by term|line chart|KTJL, anci123|
+||compare of multiple area's total debt change|line chart| -- |
 ||||
 |Councilor & crime record|seats of every party|pie chart|Beck049|
-||votes of every party|bar chart|
+||votes of every party|bar chart| -- |
 ||lists of councilor's criminal record|table|Beck049|
-||History change of the party seats||
+||History change of the party seats| -- |
