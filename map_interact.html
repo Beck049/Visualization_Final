@@ -199,19 +199,14 @@
             </g>
         </svg>
         <!-- //////////////////////////// -->
-        <div class="title_area">
-            <h1 id="city">台北市</h1>
+        <div class="title_area" style="background-color: purple; ">
+            <h1 id="city" style="height:5%;">台北市</h1>
             <hr />
-
-            <div id="List">
-
-            </div>
-            <div id="pie">
-
-            </div>
-            <div id="history">
-
-            </div>
+            <div id="List" style="height: 30%; background-color: blue; overflow-x: hidden;"></div>
+            <hr />
+            <div id="pie" style="height:25%; background-color: aquamarine;"></div>
+            <hr />
+            <div id="history" style="height:25%; background-color:aqua;"></div>
 
         </div>
     </div>
@@ -437,9 +432,19 @@
     var cur_city = "台北市"
 
     function read_council_crime(){
+        var cur_name = null;
+        var el = document.getElementById("List");
+        el.innerHTML = "";
         d3.csv("clean_data/CouncilCrime.csv", function(data){
             if(data.city == cur_city){
-                console.log(data.name);
+                if(data.name != cur_name){
+                    cur_name = data.name;
+                    console.log(cur_name);
+                    const name_list = document.createElement("a");
+                    name_list.classList.add("list_name");
+                    name_list.innerHTML = cur_name + '<br>';
+                    el.append(name_list);
+                }
             }
         });
     }
@@ -471,7 +476,7 @@
     }
     function keelung(){
         console.log("keelung");
-        change_city_name("基隆市");
+        change_city_name("基隆縣");
     }
     function pingtung(){
         console.log("pingtung");
