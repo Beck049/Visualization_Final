@@ -488,10 +488,29 @@
         ele.style.display="none";
     }
 
-    function draw_pie(){
+    function get_pie_data(){
+        var b, g, wh, y, gr;
+        d3.csv("clean_data/CouncilSeats.csv", function(data){
+            if(data.city == cur_city && data.year == '111'){
+                b = data.Blue;
+                g = data.Green;
+                wh = data.White;
+                y = data.Yellow;
+                gr = data.Grey;
+                var oth = Number(wh)+Number(y)+Number(gr);
+                draw_pie(b, g, oth);
+            }
+        })
+    }
+
+    function draw_pie(a, b, e){
+        // set the dimensions and margins of the graph
+        var ele = document.getElementById("pie");
+        ele.innerHTML = "";
+
         const width = 250,
-        height = 250,
-        margin = 20;
+            height = 250,
+            margin = 20;
 
         // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
         const radius = Math.min(width, height) / 2 - margin
@@ -505,30 +524,16 @@
             .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
         // Create dummy data
-        var sum;
-        var party = {blue: 9, green: 20, white:30, yellow:8, grey:12};
-
-        d3.csv('clean_data/CouncilSeats.csv', function(data) {
-            if(data.city == cur_city && data.year == '111'){
-                sum = data.Sum;
-                party.blue = data.Blue;
-                party.green = data.Green;
-                party.grey= data.Grey;
-                party.white = data.White;
-                party.yellow = data.Yellow;
-                console.log(data);
-            }
-        });
-        console.log(party);
+        const data = {b: a, g: b, gr:e}
 
         // set the color scale
         const color = d3.scaleOrdinal()
-        .range(d3.schemeSet2);
+        .range(["#0080FF", "green", "grey"]);
 
         // Compute the position of each group on the pie:
         const pie = d3.pie()
         .value(function(d) {return d[1]})
-        const data_ready = pie(Object.entries(party))
+        const data_ready = pie(Object.entries(data))
         // Now I know that group A goes from 0 degrees to x degrees and so on.
 
         // shape helper to build arcs:
@@ -542,7 +547,7 @@
         .data(data_ready)
         .join('path')
             .attr('d', arcGenerator)
-            .attr('fill', function(d){ return d.data[0]; })
+            .attr('fill', function(d){ console.log(d.data[0]); return(color(d.data[0])) })
             .attr("stroke", "black")
             .style("stroke-width", "2px")
             .style("opacity", 0.7)
@@ -552,7 +557,19 @@
         .selectAll('mySlices')
         .data(data_ready)
         .join('text')
-        .text(function(d){ return d.data[0]})
+        .text(function(d){ 
+            if(d.data[0] == 'b'){
+                return "中國國民黨"
+            // } else if(d.data[0] == 'y'){
+            //     return "時代力量"
+            } else if(d.data[0] == 'g'){
+                return "民主進步黨"
+            // } else if(d.data[0] == 'wh'){ 
+            //     return "台灣民眾黨"
+            } else{
+                return "無黨籍、其他"
+            }
+        })
         .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)})`})
         .style("text-anchor", "middle")
         .style("font-size", 17)
@@ -561,7 +578,8 @@
     function renderPage(){
         //alert(cur_city);
         read_council_crime();
-        draw_pie();
+        get_pie_data()
+        //draw_pie(20, 20, 9, 8, 12);
     }
 
     const el = document.getElementById("cf503461-00bd-459a-aeb5-062ebc913211");
