@@ -509,7 +509,7 @@
                 .domain([0, d3.max(data, function (d) { return d.debtInOneYear; })])
                 .range([250, 0]);
             svg.append("g")
-                .attr("transform", "translate(100,0)")
+                .attr("transform", "translate(50,0)")
                 .call(d3.axisLeft(y).ticks(10));
             svg.append("text")
                 .attr("transform", "translate(20,50) rotate(90)")
@@ -615,8 +615,8 @@
                 .attr("transform", "translate(100,250)")
                 .call(d3.axisBottom(x).ticks(8))
             svg.append("text")
-                .attr("x", 300)
-                .attr("y", 290)
+                .attr("transform", "translate(300,290)")
+                .style("fill", "white")
                 .text("Year");
 
             // Add Y axis
@@ -627,7 +627,8 @@
                 .attr("transform", "translate(100,0)")
                 .call(d3.axisLeft(y).ticks(10));
             svg.append("text")
-                .attr("transform", "translate(20,150) rotate(80)")
+                .attr("transform", "translate(20,50) rotate(90)")
+                .style("fill", "white")
                 .text("Debt (NT$)");
 
             //add rect
@@ -644,7 +645,7 @@
                 .enter()
                 .append("rect")
                 .attr("width", tickDistance)
-                .attr("height", 400)
+                .attr("height", 250)
                 .attr("x", d => x(d.year))
                 .attr("y", 0)
                 .attr("transform", "translate(100, 0)")
@@ -653,13 +654,13 @@
 
             svg.append("rect")
                 .attr("width", tickDistance)
-                .attr("height", 400)
+                .attr("height", 250)
                 .attr("transform", "translate(100, 0)")
                 .style("fill", "orange")
                 .attr("opacity", 0.1)
             svg.append('line')
                 .attr('x1', x(103))
-                .attr('y1', 400)
+                .attr('y1', 250)
                 .attr('x2', x(103))
                 .attr('y2', 0)
                 .attr("transform", "translate(100, 0)")
@@ -667,7 +668,7 @@
                 .style('stroke-width', 5);
             svg.append('line')
                 .attr('x1', x(107))
-                .attr('y1', 400)
+                .attr('y1', 250)
                 .attr('x2', x(107))
                 .attr('y2', 0)
                 .attr("transform", "translate(100, 0)")
