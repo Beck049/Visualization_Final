@@ -20,7 +20,7 @@ function vote_rate(city, year) {
     var vote_rate = [];
 
 
-    d3.csv("../clean_data/MayorElection.csv").then(data => {
+    d3.csv("../mayor/Mayor (pie chart)/MayorElection.csv").then(data => {
         console.log(data);
         vote_rate['其他'] = 0;
         data.forEach(function (d) {
