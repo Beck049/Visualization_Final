@@ -14,6 +14,22 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 
 ## Visualization Design Sketch
 
+### Overall:
+interact with the map to examine the data from selected area
+
+<img src="./pic/Sketch01.png" width="50%">
+||||
+|:---:|:---:|:---:|
+|Debt changes I|Debt changes during the term|we can observe the debt changes by the governance of this mayor|
+|Debt changse II|similar to the above, but label out the election year|we can observe the relation between debt changes and the election, especially for the one who is eager to continue.|
+|Voting Rate|the voting rate of the latest Mayor election||
+
+<img src="./pic/Sketch02.png" width="50%">
+||||
+|:---:|:---:|:---:|
+|a list of all councilor with criminal record|if click the name, you can see the record in detail|you can find out which area has more criminal councilor|
+|the pie chart of the seats in council| it shows the percentage of the seats in council| we can see which party has more power in specific area|
+
 ## File structure
 - index_mayor.ts
 - index_council.ts
@@ -42,8 +58,7 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 ||all year debt change, categorized by term|line chart|
 ||compare of multiple area's total debt change|line chart|
 ||||
-|Councilor & crime record|seats of every party|pie chart|
+|Councilor & crime record|seats of every party|pie chart|Beck049|
 ||votes of every party|bar chart|
 ||lists of councilor's criminal record|table|Beck049|
-||a point that its size display the criminal councilor|point scatter on map| 
 ||History change of the party seats||
