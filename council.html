@@ -488,12 +488,29 @@
         ele.style.display="none";
     }
 
-    function draw_pie(){
-        var el = document.getElementById("pie");
-        el.innerHTML = "";
+    function get_pie_data(){
+        var b, g, wh, y, gr;
+        d3.csv("clean_data/CouncilSeats.csv", function(data){
+            if(data.city == cur_city && data.year == '111'){
+                b = data.Blue;
+                g = data.Green;
+                wh = data.White;
+                y = data.Yellow;
+                gr = data.Grey;
+                var oth = Number(wh)+Number(y)+Number(gr);
+                draw_pie(b, g, oth);
+            }
+        })
+    }
+
+    function draw_pie(a, b, e){
+        // set the dimensions and margins of the graph
+        var ele = document.getElementById("pie");
+        ele.innerHTML = "";
+
         const width = 250,
-        height = 250,
-        margin = 20;
+            height = 250,
+            margin = 20;
 
         // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
         const radius = Math.min(width, height) / 2 - margin
@@ -507,108 +524,62 @@
             .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
         // Create dummy data
-        var party_seat = [];
-        var sum = 0;
-        // var party = {blue: 9, green: 20, white:30, yellow:8, grey:12};
+        const data = {b: a, g: b, gr:e}
 
-        d3.csv('clean_data/CouncilSeats.csv').then(data => {
-            console.log(data);
-            data.forEach(function(d) {
-                if(d.city == cur_city && d.year == '111'){
-                    sum = d.Sum;
-                    party_seat['中國國民黨'] = d.Blue;
-                    party_seat['民主進步黨'] = d.Green;
-                    party_seat['其他']= (d.Grey+d.White+d.Yellow);
-                    console.log(party_seat);
-                }
-            });
-            console.log(party_seat);
+        // set the color scale
+        const color = d3.scaleOrdinal()
+        .range(["#0080FF", "green", "grey"]);
 
-            var color = d3.scaleOrdinal()
-                .domain(['中國國民黨', '民主進步黨', '其他'])
-                .range(['blue', 'green', 'gray']);
+        // Compute the position of each group on the pie:
+        const pie = d3.pie()
+        .value(function(d) {return d[1]})
+        const data_ready = pie(Object.entries(data))
+        // Now I know that group A goes from 0 degrees to x degrees and so on.
 
-            // Compute the position of each group on the pie:
-            var pie = d3.pie()
-                .value(function (d) { return d.value; })
-            var data_ready = pie(d3.entries(party_seat))
-            console.log(data_ready);
-            // Now I know that group A goes from 0 degrees to x degrees and so on.
+        // shape helper to build arcs:
+        const arcGenerator = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius)
 
-            // shape helper to build arcs:
-            var arcGenerator = d3.arc()
-                .innerRadius(0)
-                .outerRadius(radius)
+        // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+        svg
+        .selectAll('mySlices')
+        .data(data_ready)
+        .join('path')
+            .attr('d', arcGenerator)
+            .attr('fill', function(d){ console.log(d.data[0]); return(color(d.data[0])) })
+            .attr("stroke", "black")
+            .style("stroke-width", "2px")
+            .style("opacity", 0.7)
 
-            // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-            svg.selectAll('mySlices')
-                .data(data_ready)
-                .enter()
-                .append('path')
-                .attr('d', arcGenerator)
-                .attr('fill', function (d) { return (color(d.data.key)) })
-                .attr("stroke", "white")
-                .style("stroke-width", "2px")
-                .style("opacity", 0.7)
-
-            // Now add the annotation. Use the centroid method to get the best coordinates
-            svg.selectAll('mySlices')
-                .data(data_ready)
-                .enter()
-                .append('text')
-                .text(function (d) { return d.data.key + ":" + d.data.value + "%" })
-                .attr("transform", function (d) { return "translate(" + arcGenerator.centroid(d) + ")"; })
-                .style("text-anchor", "middle")
-                .style("font-size", 17)
-                .style("fill", "white")
-
-
-        }
-        ).catch(function (error) {
-            console.log(error);
-        });
-
-        // // set the color scale
-        // const color = d3.scaleOrdinal()
-        // .range(d3.schemeSet2);
-
-        // // Compute the position of each group on the pie:
-        // const pie = d3.pie()
-        // .value(function(d) {return d[1]})
-        // const data_ready = pie(Object.entries(party))
-        // // Now I know that group A goes from 0 degrees to x degrees and so on.
-
-        // // shape helper to build arcs:
-        // const arcGenerator = d3.arc()
-        // .innerRadius(0)
-        // .outerRadius(radius)
-
-        // // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-        // svg
-        // .selectAll('mySlices')
-        // .data(data_ready)
-        // .join('path')
-        //     .attr('d', arcGenerator)
-        //     .attr('fill', function(d){ return d.data[0]; })
-        //     .attr("stroke", "black")
-        //     .style("stroke-width", "2px")
-        //     .style("opacity", 0.7)
-
-        // // Now add the annotation. Use the centroid method to get the best coordinates
-        // svg
-        // .selectAll('mySlices')
-        // .data(data_ready)
-        // .join('text')
-        // .text(function(d){ return d.data[0]})
-        // .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)})`})
-        // .style("text-anchor", "middle")
-        // .style("font-size", 17)
+        // Now add the annotation. Use the centroid method to get the best coordinates
+        svg
+        .selectAll('mySlices')
+        .data(data_ready)
+        .join('text')
+        .text(function(d){ 
+            if(d.data[0] == 'b'){
+                return "中國國民黨"
+            // } else if(d.data[0] == 'y'){
+            //     return "時代力量"
+            } else if(d.data[0] == 'g'){
+                return "民主進步黨"
+            // } else if(d.data[0] == 'wh'){ 
+            //     return "台灣民眾黨"
+            } else{
+                return "無黨籍、其他"
+            }
+        })
+        .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)})`})
+        .style("text-anchor", "middle")
+        .style("font-size", 17)
     }
 
     function renderPage(){
         //alert(cur_city);
         read_council_crime();
-        draw_pie();
+        get_pie_data()
+        //draw_pie(20, 20, 9, 8, 12);
     }
 
     const el = document.getElementById("cf503461-00bd-459a-aeb5-062ebc913211");

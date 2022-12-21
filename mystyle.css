@@ -37,7 +37,6 @@ svg {
 
 path {
     stroke: white;
-    fill: transparent;
     transition: 0.5s;
     cursor: pointer;
 }
