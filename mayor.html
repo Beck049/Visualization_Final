@@ -9,11 +9,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 
 <body>
-    <div id="app">
+    <!-- <div id="app"> -->
     <svg id="cf503461-00bd-459a-aeb5-062ebc913211" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 595.28 841.89">
         <defs />
@@ -200,22 +200,23 @@
         </g>
     </svg>
     <div class="title_area">
-        <h1 id="city">台北市</h1>
+        <h1 id="city" style="height:5%;">台北市</h1>
+        <select id="selectMode">
+            <option>councilor</option>
+            <option>debt</option>
+        </select>
         <hr />
-        <div id="List" class="councilor">
-            
-        </div>
-        <div id="crime">
-            <!-- <table id="crime_table">
-            </table> -->
-        </div>
+        <div id="List" class="councilor" style="height: 30%;  overflow-x: hidden;"></div>
+        <div id="List2" class="debt" style="height: 30%;  overflow-x: hidden;"></div>
         <hr />
-        <div id="pie" class="councilor"></div>
+        <div id="pie" class="councilor" style="height:25%;"></div>
+        <div id="pie2" class="debt" style="height:25%;"></div>
         <hr />
-        <div id="history" class="councilor"></div>
+        <div id="history" class="councilor" style="height:25%;"></div>
+        <div id="history2" class="debt" style="height:25%;"></div>
     </div>
-    </div>
-    <!-- <script src="mayor/Mayor pie chart/vote_rate.js"></script> -->
+    <!-- </div> -->
+    <script src="mayor/Mayor pie chart/vote_rate.js"></script>
 </body>
 
 <script>
@@ -436,21 +437,38 @@
 
 <script>
     var cur_city = "台北市"
-
+    let selectMode = document.querySelector("#selectMode");
+    selectMode.addEventListener("change", changeSelectMode);
+    function changeSelectMode() {
+        const switchValue = selectMode.options[selectMode.selectedIndex].value;
+        switch (switchValue) {
+            case "councilor":
+                console.log("councilor")
+                document.querySelectorAll(".councilor").forEach(a => a.style.display = "initial");
+                document.querySelectorAll(".debt").forEach(a => a.style.display = "none");
+                break;
+            case "debt":
+                console.log("debt")
+                document.querySelectorAll(".councilor").forEach(a => a.style.display = "none");
+                document.querySelectorAll(".debt").forEach(a => a.style.display = "initial");
+                break;
+            default:
+                return;
+        }
+    }
     function read_council_crime() {
         var cur_name = null;
         var el = document.getElementById("List");
-        var ele= document.getElementById("crime");
-        el.style.display = "block";
-        ele.style.display = "none";
         el.innerHTML = "";
         d3.csv("clean_data/CouncilCrime.csv", function (data) {
             if (data.city == cur_city) {
                 if (data.name != cur_name) {
                     cur_name = data.name;
                     console.log(cur_name);
-                    var html_str = '<button class="list_name" id="' + cur_name + '" onclick="get_crimes(' + "'" + cur_name + "'" + ')">' + cur_name + '</button>'
-                    el.innerHTML += html_str;
+                    const name_list = document.createElement("button");
+                    name_list.classList.add("list_name");
+                    name_list.innerHTML = cur_name;
+                    el.append(name_list);
                     el.innerHTML += '<br>';
                 }
             }
