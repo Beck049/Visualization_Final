@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 
 <head>
     <meta charset="UTF-8">
@@ -200,7 +200,7 @@
         </svg>
         <!-- //////////////////////////// -->
         <div class="title_area">
-            <h1>Taiwan<span></span><br>Weather Map<br></h1>
+            <h1 id="city">台北市</h1>
             <hr />
 
             <div id="List">
@@ -434,68 +434,112 @@
 </script>
 
 <script>
+    var cur_city = "台北市"
+
+    function read_council_crime(){
+        d3.csv("clean_data/CouncilCrime.csv", function(data){
+            if(data.city == cur_city){
+                console.log(data.name);
+            }
+        });
+    }
+
+    function renderPage(){
+        //alert(cur_city);
+        read_council_crime();
+    }
+
+    const el = document.getElementById("cf503461-00bd-459a-aeb5-062ebc913211");
+    el.addEventListener("click", renderPage, false);
+
+    function change_city_name(string){
+        cur_city = string;
+        document.getElementById("city").innerHTML = cur_city;
+    }
+
     function penghu(){
         console.log("penghu");
+        change_city_name("澎湖縣");
     }
     function chiayi(){
         console.log("chiayi");
+        change_city_name("嘉義縣");
     }
     function taichung(){
         console.log("taichung");
+        change_city_name("台中市");
     }
     function keelung(){
         console.log("keelung");
+        change_city_name("基隆市");
     }
     function pingtung(){
         console.log("pingtung");
+        change_city_name("屏東縣");
     }
     function taipei(){
         console.log("taipei");
+        change_city_name("台北市");
     }
     function new_taipei(){
-        console.log("new_taipei()");
+        console.log("new_taipei");
+        change_city_name("新北市");
     }
     function yilan(){
         console.log("yilan");
+        change_city_name("宜蘭縣");
     }
     function taoyuan(){
         console.log("taoyuan");
+        change_city_name("桃園市");
     }
     function hsinchu_city(){
         console.log("hsinchu_city");
+        change_city_name("新竹市");
     }
     function hsinchu(){
         console.log("hsinchu");
+        change_city_name("新竹縣");
     }
     function miaoli(){
         console.log("miaoli");
+        change_city_name("苗栗縣");
     }
     function changhua(){
         console.log("changhua");
+        change_city_name("彰化縣");
     }
     function yunlin(){
         console.log("yunlin");
+        change_city_name("雲林縣");
     }
     function hualien(){
         console.log("hualien");
+        change_city_name("花蓮縣");
     }
     function nantou(){
         console.log("nantou");
+        change_city_name("南投縣");
     }
     function taitung(){
         console.log("taitung");
+        change_city_name("台東縣");
     }
     function tainan(){
         console.log("tainan");
+        change_city_name("台南市");
     }
     function kaohsiung(){
         console.log("kaohsiung");
+        change_city_name("高雄市");
     }
     function chiayi_city(){
         console.log("chiayi_city");
+        change_city_name("嘉義市");
     }
     function kinmen(){
         console.log("kinmen");
+        change_city_name("金門縣");
     }
 </script>
 
