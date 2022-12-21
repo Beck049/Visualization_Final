@@ -8,8 +8,8 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <!-- <script src="https://d3js.org/d3.v6.min.js"></script> -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 
 <body>
@@ -200,22 +200,16 @@
         </g>
     </svg>
     <div class="title_area">
-        <h1 id="city">台北市</h1>
+        <h1 id="city" style="height:5%;">台北市</h1>
         <hr />
-        <div id="List" class="councilor">
-            
-        </div>
-        <div id="crime">
-            <!-- <table id="crime_table">
-            </table> -->
-        </div>
+        <div id="List" class="councilor" style="height: 30%;  overflow-x: hidden;"></div>
         <hr />
-        <div id="pie" class="councilor"></div>
+        <div id="pie" class="councilor" style="height:25%;"></div>
         <hr />
-        <div id="history" class="councilor"></div>
+        <div id="history" class="councilor" style="height:25%;"></div>
     </div>
     </div>
-    <!-- <script src="mayor/Mayor pie chart/vote_rate.js"></script> -->
+    <script src="mayor/Mayor pie chart/vote_rate.js"></script>
 </body>
 
 <script>
@@ -436,68 +430,6 @@
 
 <script>
     var cur_city = "台北市"
-
-    function read_council_crime() {
-        var cur_name = null;
-        var el = document.getElementById("List");
-        var ele= document.getElementById("crime");
-        el.style.display = "block";
-        ele.style.display = "none";
-        el.innerHTML = "";
-        d3.csv("clean_data/CouncilCrime.csv", function (data) {
-            if (data.city == cur_city) {
-                if (data.name != cur_name) {
-                    cur_name = data.name;
-                    console.log(cur_name);
-                    var html_str = '<button class="list_name" id="' + cur_name + '" onclick="get_crimes(' + "'" + cur_name + "'" + ')">' + cur_name + '</button>'
-                    el.innerHTML += html_str;
-                    el.innerHTML += '<br>';
-                }
-            }
-        });
-    }
-
-    function test(arg){
-        alert(arg);
-    }
-
-    function get_crimes(name){
-        console.log("get crimes");
-        var el = document.getElementById("crime");
-        var ele= document.getElementById("List");
-        el.style.display="block";
-        ele.style.display="none";
-        el.innerHTML = "";
-        const table = document.createElement("table");
-        d3.csv("clean_data/CouncilCrime.csv", function(data){
-            if(data.name == name){
-                const row = document.createElement("tr");
-                const cel1 = document.createElement("td");
-                cel1.innerText = data.tag;
-                const cel2 = document.createElement("td");
-                cel2.innerText = data.crime;
-                const cel3 = document.createElement("td");
-                cel3.innerText = data.year;
-                row.append(cel1, cel2, cel3);
-                table.append(row);
-            }
-            el.append(table);
-        });
-        var html_back = "<p onclick='back()' style='font-size:12px;'> < back </p>";
-        el.innerHTML += html_back;
-    }
-
-    function back(){
-        var ele = document.getElementById("crime");
-        var el= document.getElementById("List");
-        el.style.display="block";
-        ele.style.display="none";
-    }
-
-    function renderPage(){
-        //alert(cur_city);
-        read_council_crime();
-    }
 
     const el = document.getElementById("cf503461-00bd-459a-aeb5-062ebc913211");
     el.addEventListener("click", renderPage, false);
