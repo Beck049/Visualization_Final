@@ -17,14 +17,16 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 ### Overall:
 interact with the map to examine the data from selected area
 
-<img src="./pic/Sketch01.png" width="50%">
+<img src="./pic/Sketch01.jpg" width="50%">
+
 ||||
 |:---:|:---:|:---:|
 |Debt changes I|Debt changes during the term|we can observe the debt changes by the governance of this mayor|
 |Debt changse II|similar to the above, but label out the election year|we can observe the relation between debt changes and the election, especially for the one who is eager to continue.|
 |Voting Rate|the voting rate of the latest Mayor election||
 
-<img src="./pic/Sketch02.png" width="50%">
+<img src="./pic/Sketch02.jpg" width="50%">
+
 ||||
 |:---:|:---:|:---:|
 |a list of all councilor with criminal record|if click the name, you can see the record in detail|you can find out which area has more criminal councilor|
