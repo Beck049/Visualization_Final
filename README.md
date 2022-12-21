@@ -25,7 +25,7 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 
 ## Work breakdown
 
-|First Cycle|||
+|First Cycle|Done||
 |:---:|:---|:---:|
 |Data Preperation|grab the required data||
 ||clean the data||
