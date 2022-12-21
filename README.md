@@ -36,13 +36,13 @@ Analyze the vote of the councilor and list out all the criminal record if exists
 |Second Cycle|||
 |:---:|:---|:---:|
 |Mayor & debt|Mayor basic data||
-||vote rate |pie chart|KTJL|
+||vote rate |pie chart|
 ||debt change of the term |line chart|
 ||small graph of the debt change|bar chart scattered on map|
 ||all year debt change, categorized by term|line chart|
 ||compare of multiple area's total debt change|line chart|
 ||||
-|Councilor & crime record|seats of every party|pie chart|KTJL|
+|Councilor & crime record|seats of every party|pie chart|
 ||votes of every party|bar chart|
 ||lists of councilor's criminal record|table|
 ||a point that its size display the criminal councilor|point scatter on map| 
