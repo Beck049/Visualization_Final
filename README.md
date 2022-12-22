@@ -2,7 +2,7 @@
 Data Visualization Final Project using D3.js
 
 ## Overview
-Analyze the vote of the mayor and the numerical change of the national debt
+Analyze the vote of the mayor and the numerical change of the national debt，<br>
 Analyze the vote of the councilor and list out all the criminal record if exists
 
 ## Data and Data Processing
